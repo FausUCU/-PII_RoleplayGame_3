@@ -12,7 +12,7 @@ namespace Program
             book.AddSpell(new SpellOne());
 
             Wizard gandalf = new Wizard("Gandalf");
-            gandalf.AddItem(book);
+            gandalf.AddItem(book);/*cambio book a Staff*/
 
             Dwarf gimli = new Dwarf("Gimli");
 
