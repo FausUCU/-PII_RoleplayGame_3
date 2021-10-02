@@ -50,13 +50,14 @@ namespace RoleplayGame
                 return value;
             }
         }
-
-        void AddItem(IMagicalItem item)
+       /*Agregue la AddItem y RemoveIteam a una version Magica porque ya la heredava de ICharacter y los 
+personajes magicos puede utilizar Iteams normales*/
+        public void AddMagicItem(IMagicalItem item)
         {
             this.magicalItems.Add(item);
         }
 
-        void RemoveItem(IMagicalItem item)
+        public void RemoveMagicItem(IMagicalItem item)
         {
             this.magicalItems.Remove(item);
         }
