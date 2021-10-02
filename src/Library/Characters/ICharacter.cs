@@ -1,7 +1,11 @@
+using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public interface ICharacter
+    public abstract class ICharacter
     {
+        private int health = 100;
+
+        private List<IItem> items = new List<IItem>();
         string Name { get; set; }
 
         int Health { get; }
