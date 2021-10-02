@@ -12,7 +12,8 @@ namespace Program
             book.AddSpell(new SpellOne());
 
             Wizard gandalf = new Wizard("Gandalf");
-            gandalf.AddItem(book);/*cambio book a Staff*/
+            gandalf.AddMagicItem(book);/*cambio a AddMagicItem proque distingui en la classe IMagicalcharacter 
+            el agregar o remover iteams magicos o normales */
 
             Dwarf gimli = new Dwarf("Gimli");
 
