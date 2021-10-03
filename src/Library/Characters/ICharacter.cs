@@ -4,7 +4,7 @@ namespace RoleplayGame
 poder implementarlas y porque me haorra codigo */
     public abstract class ICharacter
     {   /*Le agregue la etiqueta publica todas las caracteristicas de esta clase abstracta para que las otras clases pudieran tener acceso*/
-        public int health = 100;
+        private int health = 100;
 
         public List<IItem> items = new List<IItem>();
         public string Name { get; set; }  

@@ -1,17 +1,21 @@
+
 using NUnit.Framework;
+//using RoleplayGame;
 
 namespace Test.Library
 {
     public class Tests
     {
-        [SetUp]
+        /*[SetUp]
         public void Setup()
         {
-        }
+        }*/
 
         [Test]
-        public void Test1()
+        public void Character()
         {
+            //Dwarf P_prueba= new Dwarf;  //No se porque no identifica a las clases que arme//
+            
             Assert.Pass();
         }
     }
