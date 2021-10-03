@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 namespace RoleplayGame
 { /*Converti Las interfaces Icharacter e IMagicCharacter en classes abstractas en lugar de interfaces para 
-poder implementarlas y porque me haorra codigo */
+poder implementarlas y porque me ahorra codigo */
     public abstract class ICharacter
     {   /*Le agregue la etiqueta publica todas las caracteristicas de esta clase abstracta para que las otras clases pudieran tener acceso*/
         private int health = 100;
