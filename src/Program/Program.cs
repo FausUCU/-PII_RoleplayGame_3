@@ -35,15 +35,14 @@ namespace Program
             Cyclops Cyclops01= new Cyclops("Cyclops01");
             Cyclops Cyclops02= new Cyclops("Cyclops02");
             Cyclops Cyclops03= new Cyclops("Cyclops03");
-            ArrayList Team_H= new ArrayList();
-            ArrayList Team_E= new ArrayList();
-            Team_H.Add(Green);
-            Team_H.Add(Blue);
-            Team_H.Add(Brown);
-            Team_E.Add(Cyclops01);
-            Team_E.Add(Cyclops02);
-            Team_E.Add(Cyclops03);
-            
+            Encounter Pelea01= new Encounter();
+            Pelea01.AddHero(Green);
+            Pelea01.AddHero(Brown);
+            Pelea01.AddHero(Blue);
+            Pelea01.AddEnemy(Cyclops01);
+            Pelea01.AddEnemy(Cyclops02);
+            Pelea01.AddEnemy(Cyclops03);
+            Pelea01.printTeams();
 
 
 
