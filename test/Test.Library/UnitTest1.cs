@@ -1,5 +1,6 @@
 using System;
 using NUnit.Framework;
+using RoleplayGame;
 
 namespace Test.Library
 {
@@ -14,10 +15,10 @@ namespace Test.Library
         public void Character_ShouldCreatCH()
         {   
 
-            Dwarf P_prueba= new Dwarf("P_prueba0}");  //No se porque no identifica a las clases que arme//
+            Dwarf dwarf_prueba= new Dwarf("Dearf_prueba");  
+            string Expected="Dearf_prueba";
             
-            Assert.Pass(, Character.);
+            Assert.AreEqual(Expected,dwarf_prueba.Name);
         }
     }
 }
-*/

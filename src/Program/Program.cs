@@ -43,6 +43,8 @@ namespace Program
             Pelea01.AddEnemy(Cyclops02);
             Pelea01.AddEnemy(Cyclops03);
             Pelea01.printTeams();
+            Pelea01.Fight();
+
 
 
 

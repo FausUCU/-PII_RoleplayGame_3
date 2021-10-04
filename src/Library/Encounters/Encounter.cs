@@ -9,40 +9,40 @@ namespace RoleplayGame
 {
     public class Encounter
     {
-        Hero[] Team_H; ///Halgo anda mal aka//
-        Enemy[] Team_E;
+        protected List<Hero> Hero_team= new List<Hero>(); 
+        protected List<Enemy> Enemy_team= new List<Enemy>();
 
-        public void printTeams()
-        {   
-            foreach (Hero i in this.Team_H)
-            {   
-                Console.WriteLine(i.Name);  
-            }
-            foreach (Enemy i in this.Team_E)
-            {
-                Console.WriteLine(i.Name);
-            }
-
-        }
         public void AddHero(Hero hero )
         {
-            this.Team_H[^1]=hero; // Estos " ^1 " significa el ultimo elemento del array//
+            this.Hero_team.Add(hero); // Estos " ^1 " significa el ultimo elemento del array//
         }
         public void AddEnemy(Enemy enemy)
         {
-            this.Team_E[^1]=enemy;
+            this.Enemy_team.Add(enemy);
         }
-
+        public void printTeams()
+        {   
+            Console.WriteLine("=======Los Heroes son============");
+            foreach (Hero i in this.Hero_team)
+            {   
+                Console.WriteLine(i.Name);  
+            }
+            Console.WriteLine("=======Los Enemigos son============");
+            foreach (Enemy i in this.Enemy_team)
+            {
+                Console.WriteLine(i.Name);
+            }
+        }
         public void Fight()
         {   String Encounter_Result=""; //Resultado del combate
             bool ContinueLoop=true; //Determina si continuo la battala//
             while (ContinueLoop)
            {
-                int Enemy_numbers=this.Team_E.Length; //Determina el numero de Enemigo en el convate//   
-                int Hero_numbers=this.Team_H.Length;  //Determina el numero de Heroes en el convate//
+                int Enemy_numbers=this.Enemy_team.Count(); //Determina el numero de Enemigo en el convate//   
+                int Hero_numbers=this.Hero_team.Count();  //Determina el numero de Heroes en el convate//
                 int attacked_H=Hero_numbers;          // Uso esto para ir determinando el Hero que deve atacar el Enemigo, como cada enemigo attacka a cada hero determino como se reduce este numero en el loop del encuento
                 int attacked_E=Enemy_numbers-1;        // Uso esto para ir determinando el Enemigo que deve atacar el Heroe, como todos los heroes empiezan attacando a el mismo enemigo, incialiso con -1 para atacar al ultimo del Array y lo redusco en el loop
-                foreach (Enemy i in this.Team_E)
+                foreach (Enemy i in this.Enemy_team)
                 {   
                     if (attacked_H>0)
                     {
@@ -52,30 +52,31 @@ namespace RoleplayGame
                     {
                         attacked_H=Hero_numbers;        //buelbe al primer herue atacado cuando ataca al ultimo
                     }
-                    this.Team_H[attacked_H].ReceiveAttack(i.AttackValue);
-                    int Hero_life=this.Team_H[attacked_H].Health;
+                    this.Hero_team[attacked_H].ReceiveAttack(i.AttackValue);
+                    int Hero_life=this.Hero_team[attacked_H].Health;
                     if (Hero_life<1)
                     {
-                       Array.Clear(this.Team_H,attacked_H,1);       //Elimina de la lista a los heures vencidos//
+                        this.Hero_team.RemoveAt(attacked_H);  //Elimina de la lista a los heures vencidos//
+                            
                     }
 
                 }
-                if (this.Team_H.Length>0)               //comprueba que siga habiendo heoes para peliar
+                if (this.Hero_team.Count()>0)               //comprueba que siga habiendo heoes para peliar
                 {
-                    foreach (Hero h in this.Team_H)
+                    foreach (Hero h in this.Hero_team)
                     {
-                        this.Team_E[attacked_E].ReceiveAttack(h.AttackValue);
-                        int Enemy_life= this.Team_E[attacked_E].Health;
+                        this.Enemy_team[attacked_E].ReceiveAttack(h.AttackValue);
+                        int Enemy_life= this.Enemy_team[attacked_E].Health;
                         if (Enemy_life<1)
                         {
-                            int VP_gain=this.Team_E[attacked_E].VP;
+                            int VP_gain=this.Enemy_team[attacked_E].VP;
                             h.Up_VP(VP_gain);
-                            Array.Clear(this.Team_E,attacked_E,1);
+                            this.Enemy_team.RemoveAt(attacked_E);
                             attacked_E--;
                         }
                         
                     }
-                    if(this.Team_E.Length<1)
+                    if(this.Enemy_team.Count()<1)
                     {
                         Encounter_Result="Heroes";
                         ContinueLoop=false;
