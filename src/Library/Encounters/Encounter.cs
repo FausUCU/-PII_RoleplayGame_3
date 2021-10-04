@@ -40,24 +40,19 @@ namespace RoleplayGame
            {
                 int Enemy_numbers=this.Enemy_team.Count(); //Determina el numero de Enemigo en el convate//   
                 int Hero_numbers=this.Hero_team.Count();  //Determina el numero de Heroes en el convate//
-                int attacked_H=Hero_numbers;          // Uso esto para ir determinando el Hero que deve atacar el Enemigo, como cada enemigo attacka a cada hero determino como se reduce este numero en el loop del encuento
+                int attacked_H=Hero_numbers-1;          // Uso esto para ir determinando el Hero que deve atacar el Enemigo, como cada enemigo attacka a cada hero determino como se reduce este numero en el loop del encuento
                 int attacked_E=Enemy_numbers-1;        // Uso esto para ir determinando el Enemigo que deve atacar el Heroe, como todos los heroes empiezan attacando a el mismo enemigo, incialiso con -1 para atacar al ultimo del Array y lo redusco en el loop
                 foreach (Enemy i in this.Enemy_team)
                 {   
-                    if (attacked_H>0)
+                    if (attacked_H<0)
                     {
-                        attacked_H=attacked_H-1;        //Determina a que heroe attaka y lo reduce para que ataque al siguiente//
-                    }
-                    else
-                    {
-                        attacked_H=Hero_numbers;        //buelbe al primer herue atacado cuando ataca al ultimo
+                        attacked_H=Hero_numbers-1; 
                     }
                     this.Hero_team[attacked_H].ReceiveAttack(i.AttackValue);
                     int Hero_life=this.Hero_team[attacked_H].Health;
                     if (Hero_life<1)
                     {
-                        this.Hero_team.RemoveAt(attacked_H);  //Elimina de la lista a los heures vencidos//
-                            
+                        this.Hero_team.RemoveAt(attacked_H);  //Elimina de la lista a los heroes vencidos//      
                     }
 
                 }
@@ -86,7 +81,6 @@ namespace RoleplayGame
                 {
                     Encounter_Result="Enemies";
                     ContinueLoop=false;
-
                 }
                    
             }
