@@ -6,7 +6,7 @@ namespace RoleplayGame
         public Cyclops(string name)
         {
             this.Name=name;
-            this.VP=300; 
+            this.VP=10; 
             this.AddItem(new Axe());
 
         }

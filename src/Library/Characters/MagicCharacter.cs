@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public abstract class IMagicCharacter: Hero
+    public abstract class MagicCharacter: Hero
     {
         private List<IMagicalItem> magicalItems = new List<IMagicalItem>();
         /*coloque attackvalue y Defensevalue como una nueva instancia, porque es diferente de la original y  de lo contrario hubiera tenido que marcarla como abstracta en ICharacter e colocarla en cada clase */
